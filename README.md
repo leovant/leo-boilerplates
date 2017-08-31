@@ -1,2 +1,2 @@
-# leo-boilerplates
-Boilerplates to provide different technology stacks environment
+# leo-templates
+Templates to provide different technology stacks environments.
