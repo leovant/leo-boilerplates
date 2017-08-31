@@ -1,0 +1,16 @@
+{
+    "name": "leovant/phalconapi",
+    "description": "Template to Phalcon API.",
+    "type": "template",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Leo Tavares",
+            "email": "leovant@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^6.3"
+    }
+}

@@ -1,25 +1,28 @@
-version: 2
+version: "2"
 
 services:
+  
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    volumes:
+      - ./../:/app
+    networks:
+      - default-network
+
   web:
     image: nginx:latest
     ports:
       - "80:80"
       - "443:443"
+    restart: unless-stopped
     volumes:
-      - .:/app
+      - ./../:/app
       - ./site.nginx.conf:/etc/nginx/conf.d/default.conf
-    links:
-      - app
-    networks:
-      - default-network
-
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    volumes:
-      - .:/app
+    links: 
+      - "app:api.local"
     networks:
       - default-network
 
