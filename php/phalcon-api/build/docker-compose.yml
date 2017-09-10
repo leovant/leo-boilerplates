@@ -11,12 +11,11 @@ services:
       - ./../:/app
     networks:
       - default-network
-
+    ports:
+      - "9000:9000"
+      
   web:
     image: nginx:latest
-    ports:
-      - "80:80"
-      - "443:443"
     restart: unless-stopped
     volumes:
       - ./../:/app
@@ -25,6 +24,9 @@ services:
       - "app:api.local"
     networks:
       - default-network
+    ports:
+      - "80:80"
+      - "443:443"
 
 networks:
   default-network:
