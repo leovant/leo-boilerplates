@@ -1,2 +1,3 @@
-# leo-templates
-Templates to provide different tech stacks/environments.
+# Project templates
+
+Project templates for different tech stacks.
