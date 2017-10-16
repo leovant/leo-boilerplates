@@ -1,13 +1,13 @@
-FROM python:alpine
+FROM python:latest
 
 RUN pip install uwsgi
 
-COPY ../requirements.txt /tmp/
+COPY requirements.txt /tmp/
 RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
 WORKDIR /app
-COPY ../app /app
-COPY uwsgi.ini /etc/
+COPY app /app
+COPY build/uwsgi.ini /etc/
 
 EXPOSE 8000
 

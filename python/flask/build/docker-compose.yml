@@ -2,10 +2,13 @@ version: "2"
 
 services:
   app:
-    build: .
+    build: 
+      context: ../
+      dockerfile: build/Dockerfile
     restart: unless-stopped
     volumes:
-      - ../app:/app
+      - ./../app:/app
+      - /tmp
     networks:
       - default-network
     ports:
@@ -18,12 +21,13 @@ services:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
     links:
       - "app:app.local"
-    networks:
+    ports:
       - "80:80"
       - "443:443"
-    ports:
+    networks:
       - default-network
-
+    volumes_from:
+      - app
 networks:
   default-network:
     driver: bridge
