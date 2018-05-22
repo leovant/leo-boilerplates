@@ -4,8 +4,8 @@ services:
   
   app:
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: ./../
+      dockerfile: build/Dockerfile
     restart: unless-stopped
     volumes:
       - ./../:/app
